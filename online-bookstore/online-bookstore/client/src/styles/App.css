@@ -1,1 +1,36 @@
+/* App.css */
+
+body {
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: #333;
+  color: #ffffff; 
+}
+
+h1, h2, h3 {
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+header {
+  background-color: #1f1f1f; /* dark header */
+  color: #ffffff; /* white text */
+  padding: 1rem;
+  text-align: center;
+}
+
+footer {
+  background-color: #1f1f1f; /* dark footer */
+  color: #ffffff; /* white text */
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
 
