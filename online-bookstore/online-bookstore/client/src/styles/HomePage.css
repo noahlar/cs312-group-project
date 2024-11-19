@@ -1,1 +1,34 @@
+/* HomePage.css */
+.homepage {
+  text-align: center;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.homepage h1 {
+  font-size: 2rem;
+  color: #fff;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.banner {
+    color: white;
+    padding: 2rem;
+}
+
+.ErrorMessage {
+    color: red;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.loading {
+    text-align: center;
+    font-style: italic;
+    margin-top: 1rem;
+}
 
