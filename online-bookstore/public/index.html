@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    <h1>Creative Online Bookstore Name</h1>
+    
+    <nav aria-label="Main Navigation">
+        <ul> 
+            <li><a href="#home">Home</a></li>
+            <li><a href="#books">Books</a></li>
+            <li><a href="#cart">Cart</a></li>
+            <li><a href="#login">Login</a></li>
+        </ul>
+    </nav>
+
+    <section class="banner">
+        <h2>Welcome to Creative Online Bookstore Name!</h2>
+    </section>
+
+    <section id="home">
+        <p>Discover the best books for you!</p>
+    </section>
+
+    <form id="search-form" class="search-bar">
+        <input type="text" id="search-query" placeholder="Search for books...">
+        <button type="button" onclick="searchBooks()">Search</button>
+    </form>
+
+    
+    <div class="sort-by">
+        <label for="sort-criteria">Sort by:</label>
+        <select id="sort-criteria" onchange="sortBooks()">
+            <option value="title">Title</option>
+            <option value="author">Author</option>
+            <option value="price">Price</option>
+        </select>
+    </div>
+
+    <section id="books" class="books">
+        <h2>Featured Books</h2>
+        <div id="book-list">
+            <div class="book" data-title="Book A" data-author="Author A" data-price="15">
+                <h3>Book A</h3>
+                <p>Author A</p>
+                <p>Price: $15</p>
+            </div>
+            <div class="book" data-title="Book C" data-author="Author B" data-price="10">
+                <h3>Book C</h3>
+                <p>Author B</p>
+                <p>Price: $10</p>
+            </div>
+            <div class="book" data-title="Book B" data-author="Author C" data-price="20">
+                <h3>Book B</h3>
+                <p>Author C</p>
+                <p>Price: $20</p>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        
+        function searchBooks() {
+            const query = document.getElementById('search-query').value.toLowerCase();
+            const books = document.querySelectorAll('.book');
+            books.forEach(book => {
+                const title = book.dataset.title.toLowerCase();
+                book.style.display = title.includes(query) ? 'block' : 'none';
+            });
+        }
+
+        
+        function sortBooks() {
+            const criteria = document.getElementById('sort-criteria').value;
+            const bookList = document.getElementById('book-list');
+            const books = Array.from(document.querySelectorAll('.book'));
+
+            
+            books.sort((a, b) => {
+                const aValue = a.dataset[criteria];
+                const bValue = b.dataset[criteria];
+                
+                if (criteria === 'price') {
+                    return parseFloat(aValue) - parseFloat(bValue);
+                }
+                return aValue.localeCompare(bValue);
+            });
+
+            
+            books.forEach(book => bookList.appendChild(book));
+        }
+    </script>
+</body>
+</html>
